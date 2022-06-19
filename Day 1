@@ -1,0 +1,48 @@
+
+What I Learnt:-
+
+Revised my knowledge of Bitcoin, Ethereum and Smart Contracts.
+Found out about the differences of Smart Contracts in Bitcoin and Ethereum
+  With Bitcoin Contracts not being turing complete. This is done intentionally as Bitcoing wants its network to be used and viewed as an Asset. Whereas, Ethereum is 
+  wanted to be used and viewed as an Asset as well as a Utility.
+I also learnt about the Oracle Problem.
+  In order for the blockchain smart contracts to be considered as a digitally supreme agreement, they need to get data from the real world, outside the computation.
+  This is done by Oracle. Oracle brings in the real world data. However there is concern of determining veracity of data.
+Hybrid Smart Contracts are those that provide on chain as well as off chain decentralization. (In other words, Combining on chain logical settlement with the off chain 
+data and external computations). Most of Defi Applications in the largest applications today are of Hybrid Contracts. 
+One example is ChainLink.
+  Chainlink is a decentralized modular oracle network that allows you to bring data intocontracts and perform external computation.
+  ChainLink is an incerdibly powerful oracle network because it allows us to get data, get randomness, do some type of update or really just customize our smart contracts
+  however we feel like.
+ 
+A Dapp is usually a combination of multiple smart contracts. Ethereum has given rise to many new paradigms and industries including DeFi's, DAOs, NFTs and Layer 2.
+These things expand into other networks as well. Learning how these concepts in Ethereum will form the base to moving into other blockchains as well. SO dont worry.
+
+Chain link is blockchain and smart contract platform agnostic, meanining that it will work on Ethereum, Avalanche, Polkadot, Polygon or any other blockchain or smartcontract
+platform out there
+
+Features of Blockchain
+  Decentralized
+  Felxibility and Transparency
+    (Tho having pseudo anonymity)
+  Speed and Efficiency
+    wrt regular bank deposit and withdrawals or trading stocks (like hedgefund), etc
+  Security and Immutability
+    It is immutable in the sense that any change is directly visible to all node members (as the whole chain changes- when a previous block is changed).
+    Hacking into blockchain is harder than centralized space
+    For Access, we have a pnemonic/ private key (which acts as a password)
+  Robustness
+    When a node is down, it doesnt cause the whole network to crash. There are hundreds of thousands of nodes in there. The network continues running till 1 (or minimum 
+    amount as per algorithms) node is live and any changes made will be recorded.
+  Removal of Counterparty Risk
+    Sometimes people dont want to be fulfilling all the terms of agreement. So they look for loopholes. As people are there mainly for personal benefit. For ex. Insurance
+    Companies will take some amount from you per month but when you do get into an accident, they dont want to fulfill your expenses as they got into this business to 
+    make money and now to give you insurance.
+  Trust Minimized Agreements (or trustlessness)
+    You need not be trusting of people using the blokchain as they are taken care of by math coded agreements. People will be encouraged to be positive by use of carrot 
+    and stick methodologies and other tokenomics.
+
+DAO
+  DAO is Decentralized Autonomous Organization. They live online and on the blockchain.
+  These are similar to regular organizations in the traditional world, but they have people who may hold governance tokens to make voting decisions or they may do all
+  the governance on chain that will allow us to freely engage with each other as we please.
