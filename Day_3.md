@@ -106,7 +106,26 @@ Disadvantage of PoS
   
 Regardless, it is a general agreement by community that it is a decentralized blockchain. The major environmental benefit is why Ethereum is shifting to Eth 2.0. Reducing environmental impact to upto 99%!
 
-Now, we talk about the problem of Scalability and the Sharding Solution
+Scalability
+  In situations where there is a lot of traffic. Example there are a lot of people in a region that wish to perform transactions on the blockchain. The Gas Prices and Transaction Fees will skyrocket because of high demand. Even so, at a time, only a fized amount of transaction can be included in a block. That will lead to most of the transactions having to wait. Leading to very high waiting times. So.. there seems to be a ceiling to the amount of transactions that a blockchain can support
+  
+One Solution:
+  The above problem can be solved with the help of Sharding! Sharding involves organising the servers of a specific region in such a way that the specific servers will be assigned to that region. The blocks will be confirmed by those servers and then eventually be added into the main blockchain.
+  
+There are 2 groups of Scaling Solutions that cross into one another
+  Layer 1 (On Chain),
+    Example: changing block size, hash puzzle, block speed, etc
+  Layer 2 (Off Chain)
+    Example: Payment Channels
+  
+  and
+  
+  Horizontal Scaling (adding more machines of same computational power)
+    Example: Sharding, Side chains
+  Vertical Scaling (Scaling up, ie adding more RAM/CPU to each existing machine)
+    Example: SegWit, ZK-SNARKs
+  
+  The above example of Sharding is a Layer 1, Horizontal Scaling solution (as here, we make changes 
   
 
     
