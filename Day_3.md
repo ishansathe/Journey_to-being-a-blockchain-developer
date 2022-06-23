@@ -102,8 +102,11 @@ Randomness
     A RANDAO is published for each time period (epoch) which means we can run a new VDF function every epoch. This means that there will be 16 VDF Functions each hour and there will be 16 random numbers. This randomness will then become the seed for selecting the next set of verifiers, which ensures fairness
     
 Disadvantage of PoS
-  It is considered
+  The Question arises of whether PoS is decentralized enough as a person may be able to stake a large value and then get more control. 
   
+Regardless, it is a general agreement by community that it is a decentralized blockchain. The major environmental benefit is why Ethereum is shifting to Eth 2.0. Reducing environmental impact to upto 99%!
+
+Now, we talk about the problem of Scalability and the Sharding Solution
   
 
     
