@@ -62,8 +62,18 @@ Consensus:
       Besides, attacker doesn't want to harm the blockchain in which they have invested so much.
       
     b) Forking
-      Another problem that occurs is that in a blockchain, sometimes 2 blocks are added at the same time, but not on top of each other. This causes forking. Now people start building the chain over the blocks that they believe in. In this case, to solve the ambiguity or to determine which block to consider as the core chain, we see which
-      fork is the longest. The one which is the longest chain (that is, has most blocks mined in- after the fork happened) is considered as the main chain. The protocol used to achieve this is called the GHOST(Greedy Heaviest Observed Sub-Tree) Protocol.
+      Another problem that occurs is that in a blockchain, sometimes 2 blocks are added at the same time, but not on top of each other. This causes forking. Now people start building the chain over the blocks that they believe in. In this case, to solve the ambiguity or to determine which block to consider as the core chain, we see which fork is the longest.
+      
+       [ Now another topic that comes inside this is of "Block Confirmations". 
+          Block Confirmations are number of blocks that have been placed over the block in which your transactions exist. Example if there are 2 blocks over your block then your block has received 2 confirmations. ]
+          
+        The one which is the longest chain (that is, has most blocks mined in- after the fork happened) is considered as the main chain. The protocol used to achieve this is called the GHOST(Greedy Heaviest Observed Sub-Tree) Protocol.
+
+Block Rewards and Transaction Fees
+  Transaction Fee is the fee you pay to the miner/validator to include your transaction in the block. It is set by us as we send the transaction (Just like we saw before in metamask).
+  
+  Block Reward is the total reward of block. You may have heard of Bitcoin Halving before. It means that the block reward is cut in half and continues to do so every 4 years (in Bitcoin). 
+  The Block reward increases circulation of currency in the blockchain. In Bitcoin and Ethereum, Block rewards are distributed in BTC and ETH respectively.
       
     
     
