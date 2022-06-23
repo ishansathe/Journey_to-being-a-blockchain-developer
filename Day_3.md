@@ -59,10 +59,10 @@ Consensus:
   
     a) Sybil Attacks:
       Sybil Attacks occur when an individual (or organisational entity) attempts to take over the network or gain benefits of block rewards & transaction fees by creating multiple pseudonymous accounts to increase odds of winnings.
-      This is avoided in Proof Of Work. The amount of computational power required to mine the nonce (that is the closest correct value of hash) for the block to be added onto the blockchain is very high. Moreover, the node has to be the first to find out the correct value. So attacker has less incentive to perform this attack.
+      This is avoided in Proof Of Work (PoW) . The amount of computational power required to mine the nonce (that is the closest correct value of hash) for the block to be added onto the blockchain is very high. Moreover, the node has to be the first to find out the correct value. So attacker has less incentive to perform this attack.
       Another thing to note in PoW is that you can also increase/decrease the difficulty of the problem, thus reducing or increasing block time.
       
-      This is dealt with in Proof of Stake too. When Validating (a concept in PoS where block is validated instead of mined), the validators have to stake some of their own funds to gain voting rights. So creating multiple pseudonymous accounts is not very smart as attacker has to stake their own funds there as well which may in turn get slashed again (for malicious behaviour). 
+      This is dealt with in Proof of Stake (PoS) too. When Validating (a concept in PoS where block is validated instead of mined), the validators have to stake some of their own funds to gain voting rights. So creating multiple pseudonymous accounts is not very smart as attacker has to stake their own funds there as well which may in turn get slashed again (for malicious behaviour). 
       Besides, attacker doesn't want to harm the blockchain in which they have invested so much.
       
     b) Forking:
@@ -82,7 +82,30 @@ Block Rewards and Transaction Fees
   Block Reward is the total reward of block. You may have heard of Bitcoin Halving before. It means that the block reward is cut in half and continues to do so every 4 years (in Bitcoin). 
   The Block reward increases circulation of currency in the blockchain. In Bitcoin and Ethereum, Block rewards are distributed in BTC and ETH respectively.
       
+Environmental Impact 
+  An unfortunate circumstance of PoW is its environmental impact. PoW riddle causes high amounts of computational power and thus electricity as each node is  running as fast as they can to win the race and get rewards. 
+  PoS does not cause this problem. Here, as mentioned before, we have voters who "stake" their assets as collateral. So, when malcious activity is identified, some or all of their stake can be slashed. (Avalanche, Solana, Polygon, Polkadot and Terra are some more examples of chains that use PoS, along with our known example of Ethereum)
+  
+Randomness
+  In PoS, we have a group of validators of which, one is randomly chosen to propose a block (unline in PoW, where miners would race each other) and then rest of the nodes in the group will validate whether the chosen node has honestly proposed the block. 
+  
+  Now, to achieve this randomness is difficult. Computers can never truly generate a random number. As we know, a computer will generate the same output for the same input no matter how many times you attempt it. Ex: 2+2 will always show 4, not 5 (unless it's a prank or there's a major error in the calculator function).
+  You see, in Blockchain we want the random number to be generated as well as for that number to be the same as seen by all other nodes (otherwise the chain will get split).
+  
+  To Deal with this, Eth2.0 has introduced RANDAO
+    How this works is, imagine a room full of people and each one imagines a random number in their mind. Each one is then asked to reveal their number one by one and these numbers are added. The final sum is our final random number.
+    The problem with this approach is that, the last person to reveal their number has the power, as they may change it or not even think until the previous numbers are revealed, thus controlling it's own odds of being elected as the validator again.
     
+  Thus, we make use of VDF
+    VDF stands for Verifiable Delay Function. THe implication is that it takes a long time to calculate. How this works is a bit complex, I shall explain briefly. Imagine you have a number X and now you have to find out the sixth order for a given Verfiable Delay Function. Here for each iteration, there is some predefined time needed. Also, you cannot use multiple computers to speed up the time. I.e say you are at iteration 3, you cannot continue the iteration 4 on another node. That's because the input to next iteration depends on the output of previous iteration.
+    In Eth 2.0, this VDF was defined as 102 minutes long.
+    A RANDAO is published for each time period (epoch) which means we can run a new VDF function every epoch. This means that there will be 16 VDF Functions each hour and there will be 16 random numbers. This randomness will then become the seed for selecting the next set of verifiers, which ensures fairness
+    
+Disadvantage of PoS
+  It is considered
+  
+  
+
     
     
     
