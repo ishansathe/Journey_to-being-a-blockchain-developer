@@ -1,9 +1,11 @@
-Signing and Verifying transactions
+Signing and Verifying transactions:
+
   We have Public and Private Keys
     Public Keys are used to verify
     Private Keys are used to sign
 
-Signatures
+Signatures:
+
   Signatures are formed when we enter some data and hash it with our private key. For the same set of data, the same signature will be generated (from same sender)
   The key here is that you can generate signature from data and private key, but one cannot generate private key from data and signature
   People can later use your public key to verify whether that transaction is truly signed by you.
@@ -37,6 +39,7 @@ Centralized vs Decentralized
     Also, Transactions and interactions are listed on the blockchain. so if anyone tries to change some things, then their hashes are going to be out of syn. This gives blockchain the immutability feature.
 
 Consensus:
+
   Consensus is achieved when all the nodes in the network agree on a particular block. The consensus where we simply check for each others ledgers and hashes is the most basic form of consensus called Paxon Method.
   There are many forms of Consensus mechanisms which perform against different problems and are based on different ideas
   Some are listed
@@ -53,7 +56,8 @@ Consensus:
     Then we have Correct By Construction Protocols (which may work under the aforementioned protocols) used to face specific problems only like the Casper protocol (Friendly GHOST version which works only in Proof of Stake).
     
   Now Let's look at 2 of problems/attacks
-    a) Sybil Attacks
+  
+    a) Sybil Attacks:
       Sybil Attacks occur when an individual (or organisational entity) attempts to take over the network or gain benefits of block rewards & transaction fees by creating multiple pseudonymous accounts to increase odds of winnings.
       This is avoided in Proof Of Work. The amount of computational power required to mine the nonce (that is the closest correct value of hash) for the block to be added onto the blockchain is very high. Moreover, the node has to be the first to find out the correct value. So attacker has less incentive to perform this attack.
       Another thing to note in PoW is that you can also increase/decrease the difficulty of the problem, thus reducing or increasing block time.
@@ -61,7 +65,7 @@ Consensus:
       This is dealt with in Proof of Stake too. When Validating (a concept in PoS where block is validated instead of mined), the validators have to stake some of their own funds to gain voting rights. So creating multiple pseudonymous accounts is not very smart as attacker has to stake their own funds there as well which may in turn get slashed again (for malicious behaviour). 
       Besides, attacker doesn't want to harm the blockchain in which they have invested so much.
       
-    b) Forking
+    b) Forking:
       Another problem that occurs is that in a blockchain, sometimes 2 blocks are added at the same time, but not on top of each other. This causes forking. Now people start building the chain over the blocks that they believe in. In this case, to solve the ambiguity or to determine which block to consider as the core chain, we see which fork is the longest.
       
        [ Now another topic that comes inside this is of "Block Confirmations". 
@@ -69,6 +73,9 @@ Consensus:
           
         The one which is the longest chain (that is, has most blocks mined in- after the fork happened) is considered as the main chain. The protocol used to achieve this is called the GHOST(Greedy Heaviest Observed Sub-Tree) Protocol.
 
+    c) 51% Attack:
+      This type of attack occurs when an entity or group gets control over 51% of the network. As we have seen, the blockchain which is considered correct is the one which 51% of the network (majority) agrees on. Thus, gaining control or influence allows the person to take over the network. By employing the same concepts as discussed before, PoW and PoS avoid the 51% Attack.
+      
 Block Rewards and Transaction Fees
   Transaction Fee is the fee you pay to the miner/validator to include your transaction in the block. It is set by us as we send the transaction (Just like we saw before in metamask).
   
