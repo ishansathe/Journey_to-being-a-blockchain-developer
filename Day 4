@@ -1,0 +1,45 @@
+Learning about Remix
+Basics of where we're going to start
+I.E the solidity compiler
+
+What the version number is
+License identifier
+Defining a contract
+    Similar to name of class like in Java/OOP languages
+Variable types and declaration
+    uint256 (unsigned integers with size 256)
+    int256 (signed integers till size 256)
+        above are max values so they range from 1 till that number
+    String 
+    Bool
+    address
+    bytes32 (String converted into byte format, can range from 1-32)
+Initializing
+    How values can be set at first or later during run time (by the caller of function or contract)
+Functions or methods
+Deploying of contract
+    When we deploy the contract, it costs us a littble bit of eth. But since we are using the Virtual Machine on Remix, its fake eth. We are assinged 100 eth to each of 10 accounts provided
+Visibilities
+    External
+        The function can't be called by the same contract. It has to be done by another contract/account
+    Public
+        Public functions and variables can be called by anyone. Variables in solidity are a function call to just look at them and return whatever variable that is.
+    Internal
+        Internal functions can only be called by functions within that contract or in the derived contract. By default, a variable is set to internal.
+    Private
+        Private functions and state variables are only visible for contracts they are defined in (not even derived contracts). It is the most restrictive of visibility modifiers.
+Scope
+    Say we defined our variable inside a function, then we wont be able to see it the same way as before. By default, when we define a variable just inside the contract but out of any functions, then it has a 'global' or 'contract' scope.
+View Functions
+    These are used to retrieve data. They dont perform any changes and thus are seen as blue in color (along with the public variable that we defined). Whereas our regular functions have the orange color. Indicating that they do have some function
+Pure Function:
+    We also have pure function that are used purely for mathematical operations.
+Struct
+    What if we have a group or lsit of people who wish to store their age?
+    or what if we want to associate an age to that specific person?
+    One of the solution is using Structs
+    Struct is a way to define new types of solidity. THey're almost like creating new objects.
+    
+    Now, we can add value to this with help of syntax
+     stuct_name public instance_name = struct_name ({ variable : value, ...});
+        
