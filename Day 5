@@ -1,0 +1,118 @@
+Storage Factory:
+  Now that we have understood the basics of solidity, let's move onto something more advanced with our smart contracts and build a "Factory Pattern" of our smart contracts.
+
+Factory Pattern:
+  We have our simple storage countract used to store age, name; and age associated with different people. What if we want to have a lot of these contracts deployed? We wish to give people the ability to create their own lists based on Simple Storage Contract.
+  This, is where Factory Pattern comes into play.
+
+New Contract Storage Factory:
+  Let's create a new contract StorageFactory under StorageFactory.sol. A thing to note is that both these contracts(SimpleStorage.sol and StorageFactory.sol) have to be stored under the same folder.
+  Let's figure out how to get a contract to deploy another contract. We're going to add the basic pieces that we added in SimpleStorage contract
+  
+  Import 1 contract into another:
+    So how can this contract deploy a simple contract?
+    well ,teh first thing is we are going to deploy the Simple Storage contract into our Storage Factory contract. We need to import it so that our StorageFactory contract knows what a SimpleStorage contract looks like.
+    we import using following syntax:
+     import "<pathname>/<filename>"
+     for out example, since we have stored them in the same folder, we use
+     import "./SimpleStorage.sol";
+   Importing is equivalent to copying everything in the SimpleStorage.sol file and pasting it into our StorageFactory file.
+   What's interesting about having 2 contracts in same file is that when you deploy, you will have the choice of 2 contracts to deploy.
+   
+Deploy a contract from a contract:
+  To do above, we need a function that can do that. We create this function inside out StorageFactory contract.
+  We create an object of type SimpleStorage contract and name it "genSS" . This is going to be a new SimpleStorage contract. The simple storage contract takes no input parameters.
+  If we attempt to deploy it (compile and deploy original contract and then call the function) then we have a function that doesn't return anything.
+  We're creating new contracts but we can't read where those contracts are being created. We'd have to take a look at block explorer like Etherscan.
+
+  Tracking SimpleStorage Contracts
+      In order to view all the contracts that we make, let's put them in a list/array
+        So, we created a SimpleStorage contract array of visibility public and named it "SSarray".
+          SimpleStorage[] public SSarray;
+        Everytime we create a new SimpleStorage contract, we will add it to our array
+          SSarray.push(genSS)
+          // statement is added within our createSSContract function
+
+    After deploying you will see that we have a blue button that stands for our SimpleStorage contract array. If we click on createSSContract, we will have created a transaction that is going to create a new SSContract and will push it onto the array (SSarray). If we try to then access the 0th index. I'll get the address as shown in the above picture. This is the address to which SimpleStorage contract was deployed.
+    Thus, we have successfully deployed a contract to the blockchain from another contract.
+    
+Calling setAge and Retrieve functions from SF
+    We can do more than just deploy contracts. We can deploy contracts from another contract and call those functions as well. Let's create a function where we call the setAge function and retrieve function of the SimpleStorage contract from the StorageFactory!
+        function sfStore (uint256 SSindex, uint256 SSage) public {}
+    You may be wondering why we chose SSindex rather than name (an actual part of the struct in SS contract). That's because we're going to choose which SampleStorage contract we want to interact with from our list. Then we will also pass an age to call the setAge function (which takes age as parameter)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Address and ABI:
+    Anytime you interact with a contract, you need 2 things.
+        -The address of the contract you want to interact with
+        -ABI (Application Binary Interface)
+    We know that we can get the address from SSarray, as for ABI, we can get it from import command, but let's look into that later
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+For us to interact with the SimpleStorage Contract, we can just do
+        function sfStore (uint256 SSindex, uint256 SSage) public 
+        {
+            SimpleStorage addSS = SimpleStorage(address(SSArray[index]));
+            addSS.setAge(age);
+        }
+    We created a SimpleStorage object "addSS" which stores the address of the contract that we want to interact with. Then we pass the age by calling the method for that contract (same as in OOP) to store the age.
+    
+    Now, we will create a function that will allow us to view the age that we have set
+        function sfRetrieve(uint256 index) public view returns(uint256)
+        {
+            return SimpleStorage(address(SSarray[index])).retrieve();
+        }
+    As we see, in above statement we directly used the return keyword and also had the retrieve function atached to the statement. That's because we're only using the contract once to see its data and an instance is unnecessary. Also, we learnt that we can directly call the function after specifying the contract index from our array list of contracts!
+    This is a way for us to deploy contracts and interact with contracts from another contract.
+    
+  Note:
+    To deploy a contract, we need all the functionality of that contract imported. However, to 'interact' with the contract, we don't need all the functionality. We'll learn about interfaces in the next lesson, which will allows us to interact with the contract without having all the functions defined.
+    
+    
+Inheritance:
+    SimpleStorage has cool functions and maybe we want all these functions inside StorageFactory as well. We want out Storage Factory to create contracts as well as be a Simple Storage contracts itself.
+    This can be achieved through inheritance.
+    we do it with
+        contract StorageFactory is SimpleStorage
+    Here, 'is' is a form of inheritance and the contract name after it, is the inherited contract.
+    Just by adding that line of code, StorageFactory now has all the functions and variables of SimpleStorage! Along with the currently existing functions and variables of StorageFactory!
+    
+    
+Inheritance and Overrides:
+    Now, let's say we liked the SimpleStorage contract but it doesn't do everything we wanted it to do. Let's say when we set the age in the contract, we dont want to simply store age, but store age+1.
+    For some reason, you want a contract in which everyone's age is more than it actually is, but we like everything else the contract has to offer.
+    So, let's create a new contract called ExtraStorage.sol. We're going to set it up in the same way we normally would.
+    First thing we could do is to copy paste all the code and then modify it as we please, but its a lot of work and increases Lines of Code.
+    So instead what we do is, we use inheritance.
+    A key thing to note is that simply using 'is' is not enough. As there has to be a mention of the smart contract(that comes after 'is') that we are going to inherit. We also have to import that solidity file (or smart contract, you could say)
+        import "./SimpleStorage";
+        contract ExtraStorage is SimpleStorage {}
+    By using these 2 lines of code, we have copy pasted all of its contents. No, our Extra Storage is going to be the same as SimpleStorage.
+    
+    One of the functions that we wish to change is the setAge one that takes a uint256 number and sets it as global age to the age that we've given. Now, we want it to do something different, we wanted it to add 1. How to achieve this?
+    We could do this with help of Overriding. To achieve this, we will use 2 keywords 'virtual' and 'override'.
+    
+    Now, if we try to implement the store function directly, we will get 2 errors
+        1)TypeError: Overriding function is missing "override" specifier.....
+        
+        2) TypeError: Trying to override non-virtual function. Did you forget to add "virtual"?...
+        
+    So! For a function to be overridable, we need to add a virtual keyword to store function in the SimpleStorage contract
+            function store(uint256 _age) public virtual
+            {  age = _age;  }
+    AND
+        we need to add the 'override' keyword to our store function in the ExtraStorage contract
+            function store (uint256 _age) public override
+            {  age = _age +1;  }
+    And there, the code now works!
+    
+    
+Recap:
+    Imports whole contracts
+    Storage Factory
+        Using a contract to deploy multiple instances of SimpleStorage Contract, then creating a list of those contracts (to track) and learnt about "Mapping" functions to map names to respective age (i.e person to their age) 
+    Interacting with the called contract from the caller contract (Calling the setAge and retrieve functions)
+    Overriding Concepts
+        Overrided a function from SimpleStorage with use of virtual keyword in SimpleStorage and override keyword in ExtraStorage (a new file that we created).
+    
+    
