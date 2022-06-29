@@ -30,4 +30,5 @@ So, we need someone to bring these values to us
     This is where chainlink comes in
     Not sure how its making these happen, but it offers us many conersion rates and we can take our pick. These are also called as DataFeeds
     
-These are also currently being used by some of the protocols in the top defi systems like Synthetix
+These are also currently being used by some of the protocols in the top defi systems like Synthetix is securing $2 Billion, sushi swap for leveraging trades, set protocol commodity mondey; Ave for understanding price of a collateral
+This is an example of an out of box decentralized solutions that's already been packaged in the decentralized manner for you to consume and for you to use.This makes going to production a thousand times easier than building everything yourself
