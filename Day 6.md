@@ -7,14 +7,17 @@ We don't get decimal value in the ethereum crypto, instead, we only see them in 
 Payable functions are red in color
 
 Learnt about mapping msg.sender and msg.value
+
      mapping (address => uint256) FundedValue;
      
 Then, in the function
         we use
+        
         function fund ()public payable
         {
                 FundedValue [msg.sender] += msg.value;
         }
+        
         Here, msg.sender is the person who called the function/contract and msg.value is the value set by the caller.
 
 In real world scenarios, we face the problems of funding such that, 
