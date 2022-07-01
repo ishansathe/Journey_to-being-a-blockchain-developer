@@ -45,9 +45,9 @@ This is an example of an out of box decentralized solutions that's already been 
 Now, let's see the code for getting datafeeds. We will be first looking at the default code interface provided to us by chainlink. You can see this here "https://docs.chain.link/docs/get-the-latest-price/" .
 view the code and click on "view in remix" It will open the remix IDE with code on it.
      We will be deploying this in real time network so we are now using "InjectedWeb3" in the VM option. You will get a notification from metamask, just confirm it.
-     Also, this will be performed in the Kovan Network, so switch to that network.
+     Also, this will be performed in the Rinkeby Network, so switch to that network. (The guide suggested Kovan which doesn't work so I changed it. The chainlink documentation asks us to use Rinkeby network.)
      
-     A thing to note is that, this test will take the currency of "Kovan Network". So you are suggested to get some free funds from Kovan Faucet "https://faucets.chain.link/"
+     A thing to note is that, this test will take the currency of "Rinkeby Network". So you are suggested to get some free funds from Rinkeby Faucet "https://faucets.chain.link/"
  
      Now, let's deploy the contract, metamask is gonna pop up, we confirm that
      then, we click on getLatestPrice, to get the latest price!
@@ -83,7 +83,7 @@ view the code and click on "view in remix" It will open the remix IDE with code 
      
     function getVersion() public view returns (uint256)
     {
-        AggregatorV3Interface rate = AggregatorV3Interface (	0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419)
+        AggregatorV3Interface rate = AggregatorV3Interface (0x8A753747A1Fa494EC906cE90E9f37563A8AF630e)
     }
     
     First thing we named is time which is AVI. Since we're inside the contract, we are going to skip visibility and give the name "rate". Then we initialize the contract. How do we choose where to interact with the contract? We pass the address of where the contract is located. (will tell you more of it later don't fret now)
