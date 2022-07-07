@@ -159,7 +159,7 @@ as we call the getPrice function, we get the value
      
      Let's put everything in Gwei/Wei standard. We saw that getPrice has 8 decimal places. However, the smallest unit of measure has 18. So, let's make everything have 18 decimals as well (You dont have to do this and it will save some gas if you do)
      We could do:
-          return uint256(answer * 100000000);
+          return uint256(answer * 1000000);
         
         //This is to bring it to the 1 eth = to how much USD value. Since the remix doesnt support decimal value, we will not be considering first 2 decimals **to be seen**. They will still be considered by the calculator
           
@@ -172,8 +172,10 @@ as we call the getPrice function, we get the value
     function convert(uint256 fundedAmount) public view returns (uint256)
     {
         uint256 ethPrice = getPrice();
-        uint256 inUSD = (ethPrice * fundedAmount)/ 1000000000000000000;
-        // this is in 1 wei        
+        uint256 inUSD = (ethPrice * fundedAmount)/ 100000000000000000000;
+        //I considered adding 2 more 0s above since the conversion value was coming to be incorrect. (saying it was 2 decimals
+        //ahead of what it actually should be)
+        //I think this value will have to change depending on whether we use finney or other denomination. (yet to be tested)
         return inUSD;
     }
     
